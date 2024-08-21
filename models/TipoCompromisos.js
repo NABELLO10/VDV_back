@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
-import Clientes from "./Clientes.js";
+import Sedes from "./Sedes.js";
 
 const TipoCompromisos = db.define('mae_tipo_compromisos', {
     id: {
@@ -12,7 +12,7 @@ const TipoCompromisos = db.define('mae_tipo_compromisos', {
     nom_tipo:{
         type: Sequelize.STRING(300)
     },
-    id_cliente:{
+    id_sede:{
         type: Sequelize.INTEGER
     },
 },
@@ -21,6 +21,6 @@ const TipoCompromisos = db.define('mae_tipo_compromisos', {
   tableName: "mae_tipo_compromisos",
 })
 
-TipoCompromisos.belongsTo(Clientes, {foreignKey : "id_cliente"})
+TipoCompromisos.belongsTo(Sedes, {foreignKey : "id_sede"})
 
 export default TipoCompromisos

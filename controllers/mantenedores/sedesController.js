@@ -1,5 +1,6 @@
 import Sedes from "../../models/Sedes.js"
 import Log from "../../models/Log.js"
+import Ciudades from "../../models/Ciudades.js"
 
 const registrarSede = async (req,res) => {          
         const {nom_sede, id_ciudad, direccion, est_activo, id_cliente} = req.body
@@ -19,9 +20,8 @@ const registrarSede = async (req,res) => {
                              
            await Sedes.create({
                 nom_sede, id_ciudad, direccion, est_activo, id_cliente
-            })      
-                      
-            //res.json({nuevaEmpresa})
+            })                      
+        
             res.status(200).json({msg: "Sede Registrada!"})
 
         } catch (error) {
@@ -31,7 +31,7 @@ const registrarSede = async (req,res) => {
 
 
 const editarSede = async (req,res) => {          
-    const {id} = req.params
+    const { id } = req.params;
     const {nom_sede, id_ciudad, direccion, est_activo, id_cliente} = req.body
 
     try {
@@ -96,7 +96,6 @@ const eliminarSede = async (req, res) =>{
     }     
 }   
 
-
 const obtenerSedes = async (req, res) => {
     try {
         const sedes = await Sedes.findAll({ include: [{ model: Ciudades}]})
@@ -109,7 +108,7 @@ const obtenerSedes = async (req, res) => {
 const obtenerSedesCliente = async (req, res) => {
     try {
         const {id_cliente} = req.params
-        const sedes = await EmpresasSistema.findAll({where:{id_cliente}, include: [{ model: Ciudades}]})
+        const sedes = await Sedes.findAll({where:{id_cliente}, include: [{ model: Ciudades}]})
 
         return res.status(200).json(sedes);        
     } catch (error) {

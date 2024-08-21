@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
-import Clientes from "./Clientes.js";
+import Sedes from "./Sedes.js";
 
 const RolesServicio = db.define("mae_roles_servicios",
   {
@@ -13,7 +13,10 @@ const RolesServicio = db.define("mae_roles_servicios",
     nom_rol: {
       type: Sequelize.STRING,
     },  
-    id_cliente: {
+    id_sede: {
+      type: Sequelize.INTEGER,
+    },
+    est_activo: {
       type: Sequelize.INTEGER,
     },
   },
@@ -23,6 +26,6 @@ const RolesServicio = db.define("mae_roles_servicios",
   }
 );
 
-RolesServicio.belongsTo(Clientes, {foreignKey : "id_cliente"})
+RolesServicio.belongsTo(Sedes, {foreignKey : "id_sede"})
 
 export default RolesServicio

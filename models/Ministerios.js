@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
-import Clientes from "./Clientes.js";
+import Sedes from "./Sedes.js";
 
 const Ministerios = db.define("mae_ministerios",
   {
@@ -16,7 +16,7 @@ const Ministerios = db.define("mae_ministerios",
     est_activo: {
       type: Sequelize.INTEGER,
     },
-    id_cliente: {
+    id_sede: {
       type: Sequelize.INTEGER,
     },
   },
@@ -26,6 +26,6 @@ const Ministerios = db.define("mae_ministerios",
   }
 );
 
-Ministerios.belongsTo(Clientes, {foreignKey : "id_cliente"})
+Ministerios.belongsTo(Sedes, {foreignKey : "id_sede"})
 
 export default Ministerios

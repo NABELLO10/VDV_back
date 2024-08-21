@@ -3,8 +3,7 @@ import db from "../config/db.js";
 
 import Ciudades from "./Ciudades.js";
 import EstadoCivil from "./EstadoCivil.js";
-import Cargos from "./Cargos.js";
-import Clientes from "./Clientes.js";
+import Sedes from "./Sedes.js";
 import Nacionalidades from "./Nacionalidades.js";
 
 const FichaPersonal = db.define('mae_ficha_personal',{
@@ -49,10 +48,7 @@ const FichaPersonal = db.define('mae_ficha_personal',{
     },
     fono2:{
         type: Sequelize.STRING(20)
-    },       
-    id_cargo:{
-        type: Sequelize.INTEGER
-    },  
+    },      
     nom_profesion:{
         type: Sequelize.STRING(500)
     },      
@@ -68,7 +64,7 @@ const FichaPersonal = db.define('mae_ficha_personal',{
     est_activo:{
         type: Sequelize.INTEGER
     },   
-    id_cliente:{
+    id_sede:{
         type: Sequelize.INTEGER
     },    
     user_add:{
@@ -85,8 +81,7 @@ const FichaPersonal = db.define('mae_ficha_personal',{
 
 FichaPersonal.belongsTo(Ciudades,{foreignKey: 'id_ciudad'})
 FichaPersonal.belongsTo(EstadoCivil,{foreignKey: 'id_estado_civil'})
-FichaPersonal.belongsTo(Cargos,{foreignKey: 'id_cargo'})
-FichaPersonal.belongsTo(Clientes,{foreignKey: 'id_cliente'})
+FichaPersonal.belongsTo(Sedes,{foreignKey: 'id_sede'})
 FichaPersonal.belongsTo(Nacionalidades,{foreignKey: 'id_nacionalidad'})
 
 

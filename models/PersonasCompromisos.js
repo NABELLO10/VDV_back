@@ -17,10 +17,22 @@ const PersonasCompromisos = db.define("rel_personas_compromisos",
     id_compromiso: {
       type: Sequelize.INTEGER,
     },
+    fecha_inicio: {
+      type: Sequelize.STRING(20),
+    },
+    fecha_termino: {
+      type: Sequelize.STRING(20),
+    },
+    obs: {
+      type: Sequelize.TEXT,
+    },
+    est_activo: {
+      type: Sequelize.INTEGER,
+    },
   },
   {
     timestamps: true,
-    tableName: "nub_usuarios_sedes",
+    tableName: "rel_personas_compromisos",
   }
 );
 

@@ -11,7 +11,6 @@ import UsuariosSedes from '../models/UsuariosSedes.js'
 import Ventanas from '../models/Ventanas.js'
 import VentanasPerfiles from '../models/VentanasPerfiles.js'
 import Ministerios from '../models/Ministerios.js'
-import MinisteriosSedes from '../models/MinisteriosSedes.js'
 import Cargos from '../models/Cargos.js'
 import EstadoCivil from '../models/EstadoCivil.js'
 import Nacionalidades from '../models/Nacionalidades.js'
@@ -22,16 +21,16 @@ import PersonasCompromisos from '../models/PersonasCompromisos.js'
 import Servicios from '../models/Servicios.js'
 import RolesServicio from '../models/RolesServicio.js'
 import TurnosServicio from '../models/TurnosServicio.js'
-import RolesPersonas from '../models/RolesPersonas.js'
 import Eventos from '../models/Eventos.js'
 import Inscripciones from '../models/Inscripciones.js'
 import DetalleServicio from '../models/DetalleServicio.js'
 import DetPersonasCompromisos from '../models/DetPersonasCompromisos.js'
 import TipoMovFinanzas from '../models/TipoMovFinanzas.js'
 import Finanzas from '../models/Finanzas.js'
+import ContactoClientes from '../models/ContactoClientes.js'
 
 const exportarModelos = () =>{
-Log, Pais, Region,Provincias,Ciudades, Clientes, Perfiles, Sedes, Usuarios, UsuariosSedes, Ventanas, VentanasPerfiles, Ministerios, MinisteriosSedes, Cargos, EstadoCivil, Nacionalidades, FichaPersonal, MinisterioPersonas, TipoCompromisos, PersonasCompromisos, Servicios, RolesServicio, TurnosServicio, RolesPersonas, Eventos, Inscripciones, DetalleServicio, DetPersonasCompromisos, TipoMovFinanzas, Finanzas
+Log, Pais, Region,Provincias,Ciudades, Clientes, Perfiles, Sedes, Usuarios, UsuariosSedes, Ventanas, VentanasPerfiles, Ministerios,  Cargos, EstadoCivil, Nacionalidades, FichaPersonal, MinisterioPersonas, TipoCompromisos, PersonasCompromisos, Servicios, RolesServicio, TurnosServicio, Eventos, Inscripciones, DetalleServicio, DetPersonasCompromisos, TipoMovFinanzas, Finanzas, ContactoClientes
 }
 
 export default exportarModelos

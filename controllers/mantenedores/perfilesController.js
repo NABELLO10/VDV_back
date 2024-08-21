@@ -2,13 +2,13 @@ import Perfiles from "../../models/Perfiles.js"
 import Log from "../../models/Log.js"
 
 const registrarPerfil = async (req, res) => {
-    const {nom_perfil, est_activo, id_empresa} = req.body
+    const {nom_perfil, est_activo, id_cliente} = req.body
 
     try {  
         const perfilExiste = await Perfiles.findOne({
             where:{
                 nom_perfil : nom_perfil,
-                id_empresa
+                id_cliente
             }
         }) 
 
@@ -18,7 +18,7 @@ const registrarPerfil = async (req, res) => {
         }
                          
         await Perfiles.create({
-            nom_perfil, est_activo, id_empresa
+            nom_perfil, est_activo, id_cliente
         })      
                   
         //res.json({nuevaEmpresa})
@@ -78,8 +78,7 @@ const eliminarPerfil = async (req, res) =>{
 
         await Log.create({
             des_log : 'Areas  :' + usuario.nom_usuario + ` elimina el area: ` + JSON.stringify(existe) 
-        }) 
-    
+        })     
         
         res.status(200).json({msg: "Perfil Eliminado"})
 
@@ -93,8 +92,20 @@ const eliminarPerfil = async (req, res) =>{
     }       
 }
 
+const obtenerPerfiles = async (req, res) => {
+    try {
+        const {id_cliente} = req.params
+        const perfiles = await Perfiles.findAll({where:{id_cliente}})
+        return res.status(200).json(perfiles)        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export{
     registrarPerfil,
     editarPerfil,
-    eliminarPerfil
+    eliminarPerfil,
+    obtenerPerfiles
 }

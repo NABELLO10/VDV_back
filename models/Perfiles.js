@@ -1,6 +1,9 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
+import Clientes from "./Clientes.js"
+
+
 const Perfiles = db.define('mae_perfiles', {
     id: {
         type: Sequelize.INTEGER, 
@@ -12,6 +15,9 @@ const Perfiles = db.define('mae_perfiles', {
     },
     est_activo:{
         type: Sequelize.INTEGER
+    },
+    id_cliente:{
+        type: Sequelize.INTEGER
     }
 },
 {
@@ -19,5 +25,6 @@ const Perfiles = db.define('mae_perfiles', {
   tableName: "mae_perfiles",
 })
 
+Perfiles.belongsTo(Clientes, { foreignKey: 'id_cliente'}) 
 
 export default Perfiles

@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
-import Clientes from "./Clientes.js";
+import Sedes from "./Sedes.js";
 
 const TipoMovFinanzas = db.define('mae_tipo_mov_finanzas', {
     id: {
@@ -12,7 +12,7 @@ const TipoMovFinanzas = db.define('mae_tipo_mov_finanzas', {
     nom_tipo:{
         type: Sequelize.STRING(300)
     },
-    id_cliente:{
+    id_sede:{
         type: Sequelize.INTEGER
     },
 },
@@ -21,6 +21,6 @@ const TipoMovFinanzas = db.define('mae_tipo_mov_finanzas', {
   tableName: "mae_tipo_mov_finanzas",
 })
 
-TipoMovFinanzas.belongsTo(Clientes, {foreignKey : "id_cliente"})
+TipoMovFinanzas.belongsTo(Sedes, {foreignKey : "id_sede"})
 
 export default TipoMovFinanzas

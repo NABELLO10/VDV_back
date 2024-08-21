@@ -13,13 +13,13 @@ const DetPersonasCompromisos = db.define("det_personas_compromisos",
     id_persona_compromiso: {
       type: Sequelize.INTEGER,
     },
-    detalle: {
+    obs: {
       type: Sequelize.TEXT,
     },
   },
   {
     timestamps: true,
-    tableName: "nub_usuarios_sedes",
+    tableName: "det_personas_compromisos",
   }
 );
 

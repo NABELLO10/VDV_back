@@ -18,6 +18,9 @@ const Clientes = db.define("mae_clientes",
     est_activo: {
       type: Sequelize.INTEGER,
     },
+    fecha_pago: {
+      type: Sequelize.STRING(20),
+    },
   },
   {
     timestamps: true,
