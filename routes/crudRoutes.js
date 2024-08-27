@@ -179,7 +179,6 @@ import {
 } from "../controllers/mantenedores/contactoClientesController.js";
 
 
-
 const router = express.Router();
 
 //REGISTRAR USUARIOS -------------------------------------------------//
@@ -307,7 +306,7 @@ router.get("/detServicio/:id_servicio", checkAuth, obtenerDetalleServicio);
 router.post("/clientes", checkAuth, registrarClientes);
 router.put("/clientes/:id", checkAuth, editarClientes);
 router.delete("/clientes/:id", checkAuth, eliminarClientes);
-router.get("/clientes/:id_servicio", checkAuth, obtenerClientes);
+router.get("/clientes", checkAuth, obtenerClientes);
 
 // CONTACTO CLIENTES  ------------------------------------------------------//
 router.post("/contactoClientes", checkAuth, registrarContactoClientes);

@@ -2,6 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
 import Clientes from "./Clientes.js";
+import Ciudades from "./Ciudades.js";
 
 const Sedes = db.define("mae_sedes",
   {
@@ -11,6 +12,12 @@ const Sedes = db.define("mae_sedes",
       autoIncrement: true,
     },
     nom_sede: {
+      type: Sequelize.STRING,
+    },
+    id_ciudad: {
+      type: Sequelize.INTEGER,
+    },
+    direccion: {
       type: Sequelize.STRING,
     },
     est_activo: {
@@ -27,5 +34,6 @@ const Sedes = db.define("mae_sedes",
 );
 
 Sedes.belongsTo(Clientes, {foreignKey : "id_cliente"})
+Sedes.belongsTo(Ciudades, {foreignKey : "id_ciudad"})
 
 export default Sedes
