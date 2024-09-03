@@ -191,7 +191,7 @@ router.get("/obtener-usuarios/:id_cliente", checkAuth, listarUsuarios);
 router.post("/perfil", checkAuth, registrarPerfil);
 router.put("/perfil/:id", checkAuth, editarPerfil);
 router.delete("/perfil/:id", checkAuth, eliminarPerfil);
-router.get("/obtener-perfil/:id_cliente", checkAuth, obtenerPerfiles);
+router.get("/perfil/:id_cliente", checkAuth, obtenerPerfiles);
 
 // SEDES   ------------------------------------------------------//
 router.post("/sedes", checkAuth, registrarSede);
@@ -285,16 +285,17 @@ router.delete("/finanzas/:id", checkAuth, eliminarFinanzas);
 router.get("/finanzas/:id_servicio", checkAuth, obtenerFinanzas);
 
 // EVENTOS  ------------------------------------------------------//
-router.post("/finanzas", checkAuth, registrarEventos);
-router.put("/finanzas/:id", checkAuth, editarEventos);
-router.delete("/finanzas/:id", checkAuth, eliminarEventos);
-router.get("/finanzas/:id_servicio", checkAuth, obtenerEventos);
+router.post("/eventos", checkAuth, registrarEventos);
+router.put("/eventos/:id", checkAuth, editarEventos);
+router.delete("/eventos/:id", checkAuth, eliminarEventos);
+router.get("/eventos/:id_sede", checkAuth, obtenerEventos);
 
 // INSCRIPCIONES  ------------------------------------------------------//
-router.post("/inscripciones", checkAuth, registrarInscripciones);
+router.post("/inscripcionesAuth", checkAuth, registrarInscripciones);
+router.post("/inscripciones", registrarInscripciones);
 router.put("/inscripciones/:id", checkAuth, editarInscripciones);
 router.delete("/inscripciones/:id", checkAuth, eliminarInscripciones);
-router.get("/inscripciones/:id_servicio", checkAuth, obtenerInscripciones);
+router.get("/inscripciones/:id_evento", checkAuth, obtenerInscripciones);
 
 // DETALLE SERVICIO  ------------------------------------------------------//
 router.post("/detServicio", checkAuth, registrarDetalleServicio);
@@ -312,7 +313,7 @@ router.get("/clientes", checkAuth, obtenerClientes);
 router.post("/contactoClientes", checkAuth, registrarContactoClientes);
 router.put("/contactoClientes/:id", checkAuth, editarContactoClientes);
 router.delete("/contactoClientes/:id", checkAuth, eliminarContactoClientes);
-router.get("/contactoClientes/:id_servicio", checkAuth, obtenerContactoClientes);
+router.get("/contactoClientes/:id_cliente", checkAuth, obtenerContactoClientes);
 
 
 

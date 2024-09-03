@@ -15,6 +15,9 @@ const Eventos = db.define('mae_eventos', {
     fecha:{
         type: Sequelize.STRING(300)
     },
+    fono_encargado:{
+        type: Sequelize.STRING(30)
+    },   
     detalle:{
         type: Sequelize.TEXT
     },
@@ -26,7 +29,10 @@ const Eventos = db.define('mae_eventos', {
     },
     total_cupos:{
         type: Sequelize.INTEGER
-    }   
+    },   
+    est_activo:{
+        type: Sequelize.INTEGER
+    } 
 },
 {
   timestamps: true,

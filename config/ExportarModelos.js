@@ -28,9 +28,10 @@ import DetPersonasCompromisos from '../models/DetPersonasCompromisos.js'
 import TipoMovFinanzas from '../models/TipoMovFinanzas.js'
 import Finanzas from '../models/Finanzas.js'
 import ContactoClientes from '../models/ContactoClientes.js'
+import MedioPago from '../models/MedioPago.js'
 
 const exportarModelos = () =>{
-Log, Pais, Region,Provincias,Ciudades, Clientes, Perfiles, Sedes, Usuarios, UsuariosSedes, Ventanas, VentanasPerfiles, Ministerios,  Cargos, EstadoCivil, Nacionalidades, FichaPersonal, MinisterioPersonas, TipoCompromisos, PersonasCompromisos, Servicios, RolesServicio, TurnosServicio, Eventos, Inscripciones, DetalleServicio, DetPersonasCompromisos, TipoMovFinanzas, Finanzas, ContactoClientes
+Log, Pais, Region,Provincias,Ciudades, Clientes, Perfiles, Sedes, Usuarios, UsuariosSedes, Ventanas, VentanasPerfiles, Ministerios,  Cargos, EstadoCivil, Nacionalidades, FichaPersonal, MinisterioPersonas, TipoCompromisos, PersonasCompromisos, Servicios, RolesServicio, TurnosServicio, Eventos, Inscripciones, DetalleServicio, DetPersonasCompromisos, TipoMovFinanzas, Finanzas, ContactoClientes, MedioPago
 }
 
 export default exportarModelos

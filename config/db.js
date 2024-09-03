@@ -6,7 +6,7 @@ dotenv.config();
 const db = new Sequelize(process.env.BDNAME, process.env.BDUSER, process.env.BDPASS,{
     host: process.env.BDHOST,
     dialect: process.env.BDDIALECT,
-    timezone: process.env.TIMEZONE,
+    timezone: '-04:00',
     port: process.env.PORT_DB,
     logging: false,
     define: {

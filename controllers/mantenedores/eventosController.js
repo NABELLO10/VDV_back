@@ -1,12 +1,14 @@
 import Eventos from "../../models/Eventos.js"
+import Sedes from "../../models/Sedes.js"
+import Log from "../../models/Log.js"
 
 
 const registrarEventos = async (req, res) => {
-    const {nom_evento, fecha, detalle, imagen, id_sede, total_cupos} = req.body
+    const {nom_evento, fecha, detalle, imagen, id_sede, total_cupos, est_activo, fono_encargado} = req.body
 
     try {                                  
         await Eventos.create({
-            nom_evento, fecha, detalle, imagen, id_sede, total_cupos
+            nom_evento, fecha, detalle, imagen, id_sede, total_cupos, est_activo, fono_encargado
         })      
            
         res.status(200).json({msg: "Evento Registrado!"})
@@ -19,7 +21,7 @@ const registrarEventos = async (req, res) => {
 
 const editarEventos =  async (req, res) =>{
     const {id} = req.params
-    const {nom_evento, fecha, detalle, imagen, id_sede, total_cupos} = req.body
+    const {nom_evento, fecha, detalle, imagen, id_sede, total_cupos, est_activo, fono_encargado} = req.body
 
     try {
         const rolExiste = await Eventos.findByPk(id) 
@@ -30,7 +32,7 @@ const editarEventos =  async (req, res) =>{
         }      
                     
         await Eventos.update({
-            nom_evento, fecha, detalle, imagen, id_sede, total_cupos
+            nom_evento, fecha, detalle, imagen, id_sede, total_cupos, est_activo, fono_encargado
         },{
             where:{
                 id : id
@@ -47,13 +49,14 @@ const editarEventos =  async (req, res) =>{
 }
 
 const eliminarEventos = async (req, res) =>{
+    const {usuario} = req
     const {id} = req.params
 
     try {
         const existe = await Eventos.findByPk(id)
 
         if(!existe){
-            const error = new Error("Movimiento no Existe")
+            const error = new Error("Evento no Existe")
             return res.status(404).json({msg: error.message})
         }
     
@@ -83,7 +86,8 @@ const obtenerEventos = async (req, res) => {
     try {
         const {id_sede} = req.params
         const eventos = await Eventos.findAll(
-            {where:{id_sede}},
+            {where:{id_sede},
+        include:[{model: Sedes}]},
             
         )
         return res.status(200).json(eventos)        
